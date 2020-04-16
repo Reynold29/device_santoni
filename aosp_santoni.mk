@@ -14,28 +14,25 @@
 # limitations under the License.
 #
 
+# Inherit from device.
 $(call inherit-product, device/xiaomi/santoni/full_santoni.mk)
 
-# Inherit some common Havoc-OS stuff.
-$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-PRODUCT_DEVICE := santoni
+# Inherit some common AOSP stuff.
+TARGET_BOOT_ANIMATION_RES := 720
+TARGET_BOOT_ANIMATION_RES_EVO := true
+TARGET_GAPPS_ARCH := arm64
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+
+# Device identifier. This must come after all inclusions.
+PRODUCT_NAME := aosp_santoni
 PRODUCT_BRAND := Xiaomi
+PRODUCT_DEVICE := santoni
 PRODUCT_MODEL := Redmi 4
-PRODUCT_NAME := havoc_santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
-
-# Official
-export export HAVOC_BUILD_TYPE=Official
-
-# Maintainer
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.havoc.maintainer=STARGAZER
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
 	
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
